@@ -1,0 +1,30 @@
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: localhost
+    prefer-ip-address: false
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        web: DEBUG
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka-server
+  security:
+    user:
+      name: eureka
+      password: password
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: '*'

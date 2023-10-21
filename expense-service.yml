@@ -1,0 +1,38 @@
+eureka:
+    client:
+        service-url:
+            default-zone: http://eureka:password@localhost:8761/eureka
+    instance:
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+logging:
+    level:
+        org:
+            hibernate: ERROR
+            hibernate.SQL: DEBUG
+            springframework:
+                web: DEBUG
+management:
+    endpoints:
+        web:
+            base-path: /actuator/expense
+            exposure:
+                include: '*'
+server:
+    port: 0
+spring:
+    datasource:
+        password: '{cipher}AQA7ngQgc7Zic8aOqUO2et4QE1NgDHNXpoy516hWEgbxazaEcGnaDVDDCQyh9XMKDmE17XtPUyH2sqzgUPN7bZ3kjpviD7k30dlzIbChkAJ21hbVGdqjr7pZdUWeOZOzgVpGgeOcZJ3gm81QVkNecCLYgP+oMnqyub+8kGgk5dG8s396+M3l0zixdAnywMhoW8ccxjQJiMRI5LXLOX5IZdDBX0DFgl7A64R8JYrjsL6rbkGuCoUPfk6cumItqeWqR2isOn/QOCcgFIpgi+rG4tln1IdUNSNmhRS7tZ4IW1UdyjcCKW5y6HU/RcqCInaqkZnySZJc9ZC2bvwWwlounh1Zw0O2wfMq5N7pADaQ9HBMkIjUf3HxO8fvCQFUaLl5cPM='
+        url: jdbc:mysql://localhost:3306/expenses?useSSL=false&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
+        username: '{cipher}AQBubNHP+dCXuBjCENASGuSqGpyX3d2coWKBxrBtLULNwUsCrVfU6+rxIK0en14qFCArYfNQ9pAK2+tim/n+LK75M+2kR4rMVpa8klgp4CGS8uKTAyM5Uo4l8lRAj428DzYXc7gnLn0artCspCLy3GDA8EAdVqBwQnNc2GkfyIurhZaJwC+P70z7gOcfmQRUECa/pIGfak3dp5L8nvaUtBpyn9AZvhsLmGTDSxsBjFp3wlO9zN4MFUnaKURJFv1IrVcOzVDQ7Ly38cHhkNQRKsvUg9zaURagsleooXw/IQGgByhrafQzu9H1o7NWpe7b0kHkNsRDBu9S2UW9T3sLx1LM5daBMR8rbkM7iaa5RtCGLSQPY9UEuLpYVZ+SB74JnRM='
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQLDialect
+    security:
+        oauth2:
+            resourceserver:
+                jwt:
+                    issuer-uri: http://localhost:8181/realms/microservices-realm
+                    jwk-set-uri: http://localhost:8181/realms/microservices-realm/protocol/openid-connect/certs

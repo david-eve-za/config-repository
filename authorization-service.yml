@@ -1,0 +1,36 @@
+eureka:
+    client:
+        service-url:
+            default-zone: http://eureka:password@localhost:8761/eureka
+    instance:
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+glez:
+    authorization:
+        jwt:
+            secret: '{cipher}AQClb1IL/MvtgwAWE8o5EqzPnPesstWPP2XIUagK/ZB5zd/W0jXevmuuxL7P+2gXdRWAxIE9hPzWSEwEWeq6AJevwRUuCVJwn50/Nz94WdOP8LFky85JvLbDy9reJwGTQEy/9wBR6C4sXXrRBJj35oUzZMsnr3wIW24ZHPkrxyd+oyX/0M+ChaMqxC+qQQmhXOWy+vRKo+TDH5JcrIA2535vRRz9CgyJTfJFlKinjx4QVaL8amQ8Gu8vcYSotfGuUiLz3JP0SvuYOCzWHmpe3FcpaLBOm+R36BcyoO3YjmomM1gUiUuabgmBGoBFlj+ssQUTBQy8G5GibMREK3Jfsyp1HVJVMAUEPDFMYq1ARNnDjVQUO2G1NyPvKhXgLQGMKaad4UNTFhXJ3Khme0+q8kNC3FqT6Q+EHEl1YC5vmLwv4/DD+YQEykjqaKyQVjkPSDI='
+            token-validity-in-seconds: 86400
+            token-validity-in-seconds-for-remember-me: 2592000
+logging:
+    level:
+        org:
+            springframework:
+                web: DEBUG
+management:
+    endpoints:
+        web:
+            base-path: /actuator/authorization
+            exposure:
+                include: '*'
+server:
+    port: 9000
+spring:
+    datasource:
+        password: '{cipher}AQDE3AUDk/PqDzejuqgzcuxfb6DYjc3Ia6prJgRxU0wIc/0iQqCydHmaZcFWejD4fHnDb9yePgeI4+apf7ncm4+FeiaRKrnQX5yKIeRiKoQS7VNrCgnjE/PsP7KdMrc3vk35vMgJBKUlDCNfSvbDmjahMkrAsunv4G4bNygCvF/rcdATkPqpNWoey8HIO8HMtDgqPRDSELZmlTmqOhCjDUFYZcWK08qc5ePj+Ptud1FwGL7CJUfdNRu4VEL18148oshq4TR7t4S08yF050a38RiW/i6JZsIxk6Hvt1mQYKBltM5T1rTknUzeExsbYSJLAoVgR+rHGNXpPl9C8CLXy5j7R/HGQnnCjUbXxfBt0dKv4pO5Bq5H/lCcWEjhIUxaqYcaaLKmS8urxLLbtjUX7lQlRY7l+mEBEpCLnNptN5Fsrw=='
+        url: jdbc:mysql://localhost:3306/accounts?useSSL=false&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
+        username: '{cipher}AQBs2Ldh3oi8C2bSrYGNB1jQTvnR9X9ajGXpv1IqSgZT/ovOXoBo9gGIjuMcug0iPUUEEty9sgbaSf5MHOde/xOUfyRI/rcF/b0oum7h6iXafCiLIkrSCo/lcarV7MtS+GRQY2F/hYnH5tLzecXeljNVgOlcDZNhJCUbSsULJfpr7m07velQ6MJYL0BF39lZhoGPgCcCTxr92J6R7bU9m3L1QY2Qek88Uq7yg/1MX46PUd40TFyl14WlhnHvkzW1fAF6uwoTmkylZE1VoM+qtby5WNpP4B86O7d5tX/0+/B7s8deIR0WW/lmzps2MR2rwPD5zvQt6fsUdcSlSgDyuNRMEt7xt6Q9Cgtm0kPF9ntqlyBJYi/j3VKHgUi2tsOBVkVrr69346XortnHHuFvHCh4'
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQLDialect
