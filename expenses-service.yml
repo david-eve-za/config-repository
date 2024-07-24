@@ -17,6 +17,9 @@ management:
             base-path: /actuator/expense
             exposure:
                 include: '*'
+    tracing:
+        sampling:
+            probability: 1.0
 server:
     port: 0
 spring:
