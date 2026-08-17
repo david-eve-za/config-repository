@@ -1,11 +1,8 @@
 server:
-  port: 8080
+  port: 8081
 spring:
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
+  application:
+    name: security-service
 management:
   endpoints:
     web:
@@ -15,3 +12,4 @@ management:
     enabled: true
     sampling:
       probability: 1.0
+# Phase 2 will add: oauth2 / authorization-server settings here
